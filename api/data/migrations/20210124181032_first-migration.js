@@ -11,6 +11,7 @@ exports.up = async (knex) => {
       users.increments('item_id')
       users.string('item_name', 200).notNullable()
       users.boolean('item_available').defaultTo(false)
+      users.decimal('item_price').notNullable()
       users.integer('user_id')
            .references('user_id')
            .inTable('users')
