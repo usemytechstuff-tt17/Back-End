@@ -1,4 +1,4 @@
-# API DOCS
+# API DOCS / https://usemytechstuff.herokuapp.com
 
 #### User register:
 [POST] `/api/users/register`
