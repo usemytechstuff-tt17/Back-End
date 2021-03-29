@@ -1,8 +1,8 @@
 # API DOCS
 
 #### User register:
-[POST] /api/users/register 
 ```javascript
+[POST] /api/users/register 
 Body:                                     |            Response:
 {                                         |            {
   "user_username": string,                |              "user_id": 1,
@@ -11,8 +11,8 @@ Body:                                     |            Response:
 }                                         |            }
 ```
 #### User login:
-[POST] /api/users/login
 ```javascript
+[POST] /api/users/login
 Body:                                     |            Response:
 {                                         |            {
   "user_username": string,                |              "message": "Welcome user.",
