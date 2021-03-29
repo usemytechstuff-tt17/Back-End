@@ -69,7 +69,7 @@ describe('users-router.js', () => {
       user_email: 'motoko@kusanagi.com'
     })
   })
-  /*test('[POST] /api/users/login returns token', async () => {
+  test('[POST] /api/users/login returns token', async () => {
     const motoko = {
       user_username: 'motoko',
       user_password: '1234',
@@ -81,6 +81,6 @@ describe('users-router.js', () => {
     const res = await request(server)
       .post('/api/users/login')
       .send(motoko)
-    expect(res.body).toBe('pojzefpozej')
-  })*/
+    expect(res.body.token).toBeTruthy()
+  })
 })
