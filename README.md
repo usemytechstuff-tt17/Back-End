@@ -1,6 +1,6 @@
-# API
+# API DOCS
 
-### User register:
+### **User** register:
 [POST] /api/users/register 
 ```javascript
 Body:                                     |            Response:
@@ -10,7 +10,7 @@ Body:                                     |            Response:
   "user_email": *email*                   |             "user_email": "user@user.com"
 }                                         |            }
 ```
-### User login:
+### **User** login:
 [POST] /api/users/login
 ```javascript
 Body:                                     |            Response:
