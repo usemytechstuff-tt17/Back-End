@@ -3,18 +3,11 @@
 ## Users:
 [POST] /api/users/register 
 ```javascript
-Body:
-{ 
-  "user_username": *string*,
-  "user_password": *string*,
-  "user_email": *email*
-}
+Body:                                     |  Response:
+{                                         |  {
+  "user_username": *string*,              |   "user_id": 1,
+  "user_password": *string*,              |   "user_username": "user",
+  "user_email": *email*                   |   "user_email": "user@user.com"
+}                                         |  }
 ```
-```javascript
-Response:
-{
-  "user_id": 1,
-  "user_username": "user",
-  "user_email": "user@user.com"
-}
-```
+
