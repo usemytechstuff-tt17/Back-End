@@ -27,7 +27,7 @@ describe('server.js', () => {
 })
 
 describe('users-model.js', () => {
-  it('findById and returns user', async () => {
+  it('.findById and returns user', async () => {
     const mickey = await Users.findById(1)
     expect(mickey).toEqual({
       user_id: 1,
@@ -35,7 +35,7 @@ describe('users-model.js', () => {
       user_email: 'mickey@oneil.com'
     })
   })
-  it('add to db and returns user', async () => {
+  it('.add to db and returns user', async () => {
     const motoko = {
       user_username: 'motoko',
       user_password: '1234',
@@ -45,6 +45,11 @@ describe('users-model.js', () => {
     expect(await db('users')).toHaveLength(4)
     const catchMotoko = (await db('users'))[3]
     expect(catchMotoko.user_username).toBe('motoko')
+  })
+  it('.findBy an object and returns user', async () => {
+    const searchFor = { user_username: 'rick'}
+    const rick = await Users.findBy(searchFor)
+    expect(rick.user_email).toBe('rick@deckard.com')
   })
 })
 

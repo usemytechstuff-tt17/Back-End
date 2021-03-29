@@ -21,15 +21,39 @@ router.post('/register', (req, res, next) => {
 
   UsersModel.add(credentials)
             .then(([user]) => {
-                console.log("USER", user)
                 res.status(201).json(user)
             })
             .catch(next)
 })
 
 router.post('/login', (req, res, next) => {
-  res.status(200).json('user created!')
+  const { user_username, user_password } = req.body
+
+  UsersModel.findBy({ user_username: user_username })
+            .then(user => {
+              if (user && bcryptjs.compareSync(user_password, user.user_password)) {
+                const token = buildToken(user)
+                res.status(200).json({
+                  message: `Welcome ${user_username}.`, token
+                })
+              } else {
+                res.status(400).json({ message: 'invalid credentials' })
+              }
+            })
+            .catch(next)
 })
+
+const buildToken = user => {
+  const payload = {
+    subject: user.user_id,
+    username: user.user_username,
+    role_name: user.user_email,
+  }
+  const config = {
+    expiresIn: "1d",
+  }
+  return jwt.sign(payload, jwtSecret, config)
+}
 
 router.use((err, req, res, next) => {
   res.status(500).json({
