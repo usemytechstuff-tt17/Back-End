@@ -2,8 +2,8 @@
 
 ## Users:
 [POST] /api/users/register 
-Body:
 ```javascript
+Body:
 { 
   "user_username": *string*,
   "user_password": *string*,
