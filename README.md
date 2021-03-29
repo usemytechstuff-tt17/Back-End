@@ -19,4 +19,16 @@ Body:                                     |            Response:
   "user_password": string                 |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }                                         |            }
 ```
+#### Items:
+[Get] `/api/items`
+```javascript
+Body:                                     |            Response:
+                                          |            {
+                                          |              "item_id": 1,,
+                                          |              "item_name": "item",
+                                          |              "item_available": true, //default to false
+                                          |              "item_price": "1.00",
+                                          |              "user_id": 1, //item owner
+                                          |            }
+```
 
