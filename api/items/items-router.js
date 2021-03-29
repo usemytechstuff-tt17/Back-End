@@ -1,10 +1,17 @@
 const router = require('express').Router()
 
-//models
+const ItemsModel = require('./items-model')
+
+const { restricted } = require('../users/users-middleware')
+
 //middleware
 
-router.get('/', (req, res, next) => {
-  res.status(200).json('getAll Items')
+router.get('/', restricted, (req, res, next) => {
+  ItemsModel.getAll()
+            .then(all => {
+              res.status(200).json(all)
+            })
+            .catch(next)
 })
 
 router.get('/:id', (req, res, next) => {
