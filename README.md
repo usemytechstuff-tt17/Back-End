@@ -19,7 +19,7 @@ Body:                                     |            Response:
   "user_password": string                 |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }                                         |            }
 ```
-#### Items:
+#### All items:
 [Get] `/api/items`
 ```javascript
 Body:                                     |            Response:
