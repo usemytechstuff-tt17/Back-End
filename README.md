@@ -20,7 +20,7 @@ Body:                                     |            Response:
 }                                         |            }
 ```
 #### All items:
-[Get] `/api/items`
+[GET] `/api/items`
 ```javascript
 Body:                                     |            Response:
                                           |            {
