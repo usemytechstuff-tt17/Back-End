@@ -22,13 +22,16 @@ Body:                                     |            Response:
 #### All items:
 [GET] `/api/items`
 ```javascript
-Body:                                     |            Response:
-                                          |            {
-                                          |              "item_id": 1,,
-                                          |              "item_name": "item",
-                                          |              "item_available": true, //default to false
-                                          |              "item_price": "1.00",
-                                          |              "user_id": 1, //item owner
-                                          |            }
+Body:                                     |           Response:
+                                          |           [
+                                          |             {
+                                          |               "item_id": 1,,
+                                          |               "item_name": "item",
+                                          |               "item_available": true, //default to false
+                                          |               "item_price": "1.00",
+                                          |               "user_id": 1, //item owner
+                                          |             }
+                                          |           ]
+
 ```
 
