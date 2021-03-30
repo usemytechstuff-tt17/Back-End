@@ -27,11 +27,23 @@ Body:                                     |           Response:
                                           |             {
                                           |               "item_id": 1,,
                                           |               "item_name": "item",
-                                          |               "item_available": true, //default to false
+                                          |               "item_available": true,
                                           |               "item_price": "1.00",
                                           |               "item_owner": 'user name',
                                           |             }
                                           |           ]
 
 ```
+#### One item:
+[GET] `/api/items/:id`
+```javascript
+Body:                                     |           Response:
+                                          |           {
+                                          |             "item_id": 1,,
+                                          |             "item_name": "item",
+                                          |             "item_available": true,
+                                          |             "item_price": "1.00",
+                                          |             "item_owner": 'user name',
+                                          |           }
 
+```
