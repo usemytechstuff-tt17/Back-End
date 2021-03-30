@@ -35,6 +35,11 @@ describe('users-model.js', () => {
       user_email: 'mickey@oneil.com'
     })
   })
+  it('.findBy an object and returns user', async () => {
+    const searchFor = { user_username: 'rick'}
+    const rick = await Users.findBy(searchFor)
+    expect(rick.user_email).toBe('rick@deckard.com')
+  })
   it('.add to db and returns user', async () => {
     const motoko = {
       user_username: 'motoko',
@@ -45,11 +50,6 @@ describe('users-model.js', () => {
     expect(await db('users')).toHaveLength(4)
     const catchMotoko = (await db('users'))[3]
     expect(catchMotoko.user_username).toBe('motoko')
-  })
-  it('.findBy an object and returns user', async () => {
-    const searchFor = { user_username: 'rick'}
-    const rick = await Users.findBy(searchFor)
-    expect(rick.user_email).toBe('rick@deckard.com')
   })
 })
 
@@ -82,5 +82,24 @@ describe('users-router.js', () => {
       .post('/api/users/login')
       .send(motoko)
     expect(res.body.token).toBeTruthy()
+  })
+})
+describe('items-router.js', () => {
+  test('[GET] /api/items returns all items', async () => {
+    const items = await request(server)
+      .get('/api/items')
+    expect(items.body).toHaveLength(3)
+    expect(items.body[2].item_name).toBe('camera')
+  })
+  test('[GET] /api/items/:id returns an object', async () => {
+    const item = await request(server)
+      .get('/api/items/2')
+    expect(item.body).toMatchObject({
+      item_id: 2,
+      item_name: 'milkshake',
+      item_price: '3.00',
+      item_available: false,
+      item_owner: 'rick'
+    })
   })
 })
