@@ -6,8 +6,8 @@
 Body:                                     |            Response:
 {                                         |            {
   "username": string,                |              "user_id": 1,
-  "user_password": string,                |              "username": "user",
-  "user_email": email                     |              "user_email": "user@user.com"
+  "password": string,                |              "username": "user",
+  "email": email                     |              "email": "user@user.com"
 }                                         |            }
 ```
 #### User login:
@@ -16,7 +16,7 @@ Body:                                     |            Response:
 Body:                                     |            Response:
 {                                         |            {
   "username": string,                |              "message": "Welcome user.",
-  "user_password": string                 |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  "password": string                 |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }                                         |            }
 ```
 #### All items:

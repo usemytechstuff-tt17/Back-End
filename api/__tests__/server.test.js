@@ -32,19 +32,19 @@ describe('users-model.js', () => {
     expect(mickey).toEqual({
       user_id: 1,
       username: 'mickey',
-      user_email: 'mickey@oneil.com'
+      email: 'mickey@oneil.com'
     })
   })
   it('.findBy an object and returns user', async () => {
     const searchFor = { username: 'rick'}
     const rick = await Users.findBy(searchFor)
-    expect(rick.user_email).toBe('rick@deckard.com')
+    expect(rick.email).toBe('rick@deckard.com')
   })
   it('.add to db and returns user', async () => {
     const motoko = {
       username: 'motoko',
-      user_password: '1234',
-      user_email: 'motoko@kusanagi.com'
+      password: '1234',
+      email: 'motoko@kusanagi.com'
     }
     await Users.add(motoko)
     expect(await db('users')).toHaveLength(4)
@@ -57,8 +57,8 @@ describe('users-router.js', () => {
   test('[POST] /api/users/register returns user', async () => {
     const motoko = {
       username: 'motoko',
-      user_password: '1234',
-      user_email: 'motoko@kusanagi.com'
+      password: '1234',
+      email: 'motoko@kusanagi.com'
     }
     const res = await request(server)
       .post('/api/users/register')
@@ -66,14 +66,14 @@ describe('users-router.js', () => {
     expect(res.body).toMatchObject({
       user_id: 4,
       username: 'motoko',
-      user_email: 'motoko@kusanagi.com'
+      email: 'motoko@kusanagi.com'
     })
   })
   test('[POST] /api/users/login returns token', async () => {
     const motoko = {
       username: 'motoko',
-      user_password: '1234',
-      user_email: 'motoko@kusanagi.com'
+      password: '1234',
+      email: 'motoko@kusanagi.com'
     }
     await request(server)
       .post('/api/users/register')
