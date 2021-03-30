@@ -5,13 +5,13 @@ const router = require('express').Router()
 const { jwtSecret } = require('../config/secrets')
 const UsersModel = require('./users-model')
 
-//middleware
+const { restricted } = require('./users-middleware')
 
 router.get('/', (req, res, next) => {
   res.status(200).json('getAll Users')
 })
 
-router.get('/:id/items', (req, res, next) => {
+router.get('/:id/items', restricted, (req, res, next) => {
   UsersModel.findUserItems(req.params.id)
             .then(user_items => {
               res.status(200).json(user_items)
@@ -41,8 +41,11 @@ router.post('/login', (req, res, next) => {
             .then(user => {
               if (user && bcryptjs.compareSync(password, user.password)) {
                 const token = buildToken(user)
+                console.log("USER: ", user)
                 res.status(200).json({
-                  message: `Welcome ${username}.`, token
+                  message: `Welcome ${username}.`,
+                  user_id: user.user_id,
+                  token
                 })
               } else {
                 res.status(400).json({ message: 'invalid credentials' })

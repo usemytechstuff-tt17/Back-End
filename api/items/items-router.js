@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
             .catch(next)
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', restricted, (req, res, next) => {
   const [id] = req.params.id
 
   ItemsModel.getById(id)

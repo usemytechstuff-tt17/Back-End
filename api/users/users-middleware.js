@@ -11,6 +11,7 @@ const restricted = (req, res, next) => {
         res.status(401).json({ message: 'Token invalid' })
       } else {
         console.log("DECODED: ", decoded)
+        req.decodedJwt = decoded
         next()
       }
     })
