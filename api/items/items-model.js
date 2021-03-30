@@ -7,7 +7,7 @@ function getAll() {
       'item_name',
       'item_available',
       'item_price',
-      'user_username as item_owner'
+      'username as item_owner'
       )
     .from('items')
     .join('users', 'users.user_id', 'items.user_id')
@@ -20,7 +20,7 @@ function getById(id) {
       'item_name',
       'item_available',
       'item_price',
-      'user_username as item_owner'
+      'username as item_owner'
       )
     .from('items')
     .join('users', 'users.user_id', 'items.user_id')

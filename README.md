@@ -5,8 +5,8 @@
 ```javascript
 Body:                                     |            Response:
 {                                         |            {
-  "user_username": string,                |              "user_id": 1,
-  "user_password": string,                |              "user_username": "user",
+  "username": string,                |              "user_id": 1,
+  "user_password": string,                |              "username": "user",
   "user_email": email                     |              "user_email": "user@user.com"
 }                                         |            }
 ```
@@ -15,7 +15,7 @@ Body:                                     |            Response:
 ```javascript
 Body:                                     |            Response:
 {                                         |            {
-  "user_username": string,                |              "message": "Welcome user.",
+  "username": string,                |              "message": "Welcome user.",
   "user_password": string                 |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }                                         |            }
 ```

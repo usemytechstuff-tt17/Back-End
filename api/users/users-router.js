@@ -27,14 +27,14 @@ router.post('/register', (req, res, next) => {
 })
 
 router.post('/login', (req, res, next) => {
-  const { user_username, user_password } = req.body
+  const { username, user_password } = req.body
 
-  UsersModel.findBy({ user_username: user_username })
+  UsersModel.findBy({ username: username })
             .then(user => {
               if (user && bcryptjs.compareSync(user_password, user.user_password)) {
                 const token = buildToken(user)
                 res.status(200).json({
-                  message: `Welcome ${user_username}.`, token
+                  message: `Welcome ${username}.`, token
                 })
               } else {
                 res.status(400).json({ message: 'invalid credentials' })
@@ -46,7 +46,7 @@ router.post('/login', (req, res, next) => {
 const buildToken = user => {
   const payload = {
     subject: user.user_id,
-    username: user.user_username,
+    username: user.username,
     role_name: user.user_email,
   }
   const config = {
