@@ -6,7 +6,7 @@ const { restricted } = require('../users/users-middleware')
 
 //middleware
 
-router.get('/', restricted, (req, res, next) => {
+router.get('/', (req, res, next) => {
   ItemsModel.getAll()
             .then(all => {
               res.status(200).json(all)
