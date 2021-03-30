@@ -84,6 +84,7 @@ describe('users-router.js', () => {
     expect(res.body.token).toBeTruthy()
   })
 })
+
 describe('items-router.js', () => {
   test('[GET] /api/items returns all items', async () => {
     const items = await request(server)

@@ -18,9 +18,9 @@ function findBy(filter) {
 
 function findUserItems(id) {
   return db
-    .select('items.user_id', 'username', 'item_id', 'item_available', 'item_price')
+    .select('items.user_id', 'username', 'item_id', 'item_name',  'item_available', 'item_price')
     .from('users')
-    .join('items', 'users.user_id', 'items.user_id')
+    .leftJoin('items', 'users.user_id', 'items.user_id')
     .where('items.user_id', id)
 }
 

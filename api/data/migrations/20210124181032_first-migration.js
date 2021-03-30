@@ -12,6 +12,7 @@ exports.up = async (knex) => {
       users.string('item_name', 200).notNullable()
       users.boolean('item_available').defaultTo(false)
       users.decimal('item_price').notNullable()
+      users.string('item_description', 320).notNullable()
       users.integer('user_id')
            .references('user_id')
            .inTable('users')
