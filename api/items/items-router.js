@@ -15,7 +15,13 @@ router.get('/', restricted, (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-  res.status(200).json('some item')
+  const [id] = req.params.id
+
+  ItemsModel.getById(id)
+            .then(item =>
+              res.status(200).json(item)
+            )
+            .catch(next)
 })
 
 router.post('/', (req, res, next) => {

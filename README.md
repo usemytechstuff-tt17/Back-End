@@ -29,7 +29,7 @@ Body:                                     |           Response:
                                           |               "item_name": "item",
                                           |               "item_available": true, //default to false
                                           |               "item_price": "1.00",
-                                          |               "user_id": 1, //item owner
+                                          |               "item_owner": 'user name',
                                           |             }
                                           |           ]
 

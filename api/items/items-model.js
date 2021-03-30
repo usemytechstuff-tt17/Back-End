@@ -1,15 +1,34 @@
 const db = require('../data/db-config')
 
 function getAll() {
-  return db('items')
+  return db
+    .select(
+      'item_id',
+      'item_name',
+      'item_available',
+      'item_price',
+      'user_username as item_owner'
+      )
+    .from('items')
+    .join('users', 'users.user_id', 'items.user_id')
 }
 
 function getById(id) {
-  return db('items')
+  return db
+    .select(
+      'item_id',
+      'item_name',
+      'item_available',
+      'item_price',
+      'user_username as item_owner'
+      )
+    .from('items')
+    .join('users', 'users.user_id', 'items.user_id')
     .where('item_id', id)
     .first()
 }
 
 module.exports = {
   getAll,
+  getById,
 }
