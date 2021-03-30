@@ -56,9 +56,9 @@ router.post('/login', (req, res, next) => {
 
 const buildToken = user => {
   const payload = {
-    subject: user.user_id,
+    user_id: user.user_id,
     username: user.username,
-    role_name: user.email,
+    email: user.email,
   }
   const config = {
     expiresIn: "1d",

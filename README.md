@@ -5,9 +5,9 @@
 ```javascript
 Body:                                     |            Response:
 {                                         |            {
-  "username": string,                |              "user_id": 1,
-  "password": string,                |              "username": "user",
-  "email": email                     |              "email": "user@user.com"
+  "username": string,                     |              "user_id": 1,
+  "password": string,                     |              "username": "user",
+  "email": email                          |              "email": "user@user.com"
 }                                         |            }
 ```
 #### User login:
@@ -15,8 +15,9 @@ Body:                                     |            Response:
 ```javascript
 Body:                                     |            Response:
 {                                         |            {
-  "username": string,                |              "message": "Welcome user.",
-  "password": string                 |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  "username": string,                     |              "message": "Welcome user.",
+  "password": string                      |              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                                          |              "user_id": 0
 }                                         |            }
 ```
 #### All items:
@@ -30,6 +31,7 @@ Body:                                     |           Response:
                                           |               "item_available": true,
                                           |               "item_price": "1.00",
                                           |               "item_owner": 'user name',
+                                          |               "item_description": "someDescription",
                                           |             }
                                           |           ]
 
@@ -41,9 +43,28 @@ Body:                                     |           Response:
                                           |           {
                                           |             "item_id": 1,,
                                           |             "item_name": "item",
+                                          |             "item_description": "someDescription",
                                           |             "item_available": true,
                                           |             "item_price": "1.00",
                                           |             "item_owner": 'user name',
                                           |           }
+
+```
+#### User's items:
+[GET] `/api/users/:id/items`
+```javascript
+Body:                                     |           Response:
+                                          |           [
+                                          |             {
+                                          |               "user_id": 1,
+                                          |               "item_owner": 'username',
+                                          |               "item_id": 1,
+                                          |               "item_name": "item",
+                                          |               "item_available": true,
+                                          |               "item_price": "1.00",
+                                          |               "item_owner": 'user name',
+                                          |               "item_description": 'someDescription,
+                                          |             }
+                                          |           ]
 
 ```

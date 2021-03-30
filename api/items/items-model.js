@@ -7,6 +7,7 @@ function getAll() {
       'item_name',
       'item_available',
       'item_price',
+      'item_description',
       'username as item_owner'
       )
     .from('items')
@@ -20,6 +21,7 @@ function getById(id) {
       'item_name',
       'item_available',
       'item_price',
+      'item_description',
       'username as item_owner'
       )
     .from('items')

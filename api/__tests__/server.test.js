@@ -47,8 +47,8 @@ describe('users-model.js', () => {
       email: 'motoko@kusanagi.com'
     }
     await Users.add(motoko)
-    expect(await db('users')).toHaveLength(4)
-    const catchMotoko = (await db('users'))[3]
+    expect(await db('users')).toHaveLength(5)
+    const catchMotoko = (await db('users'))[4]
     expect(catchMotoko.username).toBe('motoko')
   })
 })
@@ -64,7 +64,7 @@ describe('users-router.js', () => {
       .post('/api/users/register')
       .send(motoko)
     expect(res.body).toMatchObject({
-      user_id: 4,
+      user_id: 5,
       username: 'motoko',
       email: 'motoko@kusanagi.com'
     })
