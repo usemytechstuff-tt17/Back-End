@@ -38,7 +38,7 @@ router.put('/:id', restricted, (req, res, next) => {
   const cleanBody = {item_name, item_available, item_price, item_description}
 
   ItemsModel.update(id, cleanBody)
-            .then((item) => {
+            .then(([item]) => {
               res.status(201).json(item)
             })
             .catch(next)
