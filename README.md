@@ -68,3 +68,5 @@ Body:                                     |           Response:
                                           |           ]
 
 ```
+[PUT] `/api/items/:item_id`
+[POST] `/api/items`

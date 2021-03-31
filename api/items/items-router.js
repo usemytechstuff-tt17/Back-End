@@ -24,8 +24,12 @@ router.get('/:id', restricted, (req, res, next) => {
             .catch(next)
 })
 
-router.post('/', (req, res, next) => {
-  res.status(201).json('item created')
+router.post('/', restricted, (req, res, next) => {
+  ItemsModel.add(req.decodedJwt.user_id, req.body)
+            .then(item => {
+              res.status(201).json(item)
+            })
+            .catch(next)
 })
 
 router.post('/:id', (req, res, next) => {
@@ -35,7 +39,6 @@ router.post('/:id', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   const { id } = req.params
   const { body } = req
-  console.log('BODY: ', body)
 
   ItemsModel.update(id, body)
             .then(([item]) => {

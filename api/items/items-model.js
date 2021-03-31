@@ -31,6 +31,21 @@ function getById(id) {
     .first()
 }
 
+function add(id, obj) {
+  const newItem = { user_id: id, ...obj }
+  
+  return db('items')
+    .insert(
+      newItem,
+      [
+        'item_id',
+        'item_name',
+        'item_available',
+        'item_price',
+        'item_description'
+      ])
+}
+
 function update(id, changes) {
   return db('items')
     .where('item_id', id)
@@ -48,5 +63,6 @@ function update(id, changes) {
 module.exports = {
   getAll,
   getById,
+  add,
   update,
 }

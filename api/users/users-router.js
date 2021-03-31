@@ -12,10 +12,10 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/items', restricted, (req, res, next) => {
-  console.log("TOKEN STUFF: ", req.decodedJwt)
   UsersModel.findUserItems(req.decodedJwt.user_id)
             .then(user_items => {
               res.status(200).json(user_items)
+
             })
             .catch(next)
 })
@@ -42,7 +42,6 @@ router.post('/login', (req, res, next) => {
             .then(user => {
               if (user && bcryptjs.compareSync(password, user.password)) {
                 const token = buildToken(user)
-                console.log("USER: ", user)
                 res.status(200).json({
                   message: `Welcome ${username}.`,
                   user_id: user.user_id,
