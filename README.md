@@ -70,3 +70,4 @@ Body:                                     |           Response:
 ```
 [PUT] `/api/items/:item_id`
 [POST] `/api/items`
+[DELETE] `/api/items/:item_id`

@@ -32,10 +32,6 @@ router.post('/', restricted, (req, res, next) => {
             .catch(next)
 })
 
-router.post('/:id', (req, res, next) => {
-  res.status(200).json('item requested')
-})
-
 router.put('/:id', (req, res, next) => {
   const { id } = req.params
   const { body } = req
