@@ -16,7 +16,6 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', restricted, (req, res, next) => {
   const { id } = req.params
-  console.log("HERE: ", id)
 
   ItemsModel.getById(id)
             .then(item =>

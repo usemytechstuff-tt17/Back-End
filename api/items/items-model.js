@@ -59,8 +59,7 @@ function update(id, changes) {
         'item_available',
         'item_price',
         'item_description',
-        'user_id',
-        'username'
+        'user_id'
       ])
 }
 
