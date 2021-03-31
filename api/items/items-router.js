@@ -46,7 +46,7 @@ router.put('/:id', restricted, (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
   ItemsModel.del(req.params.id)
-            .then(item => {
+            .then(([item]) => {
               res.status(200).json(item)
             })
             .catch(next)
