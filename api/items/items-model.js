@@ -49,6 +49,7 @@ function add(id, obj) {
 
 function update(id, changes) {
   return db('items')
+    .leftJoin('users', 'users.user_id', 'items.user_id')
     .where('item_id', id)
     .update(
       changes,
@@ -58,7 +59,8 @@ function update(id, changes) {
         'item_available',
         'item_price',
         'item_description',
-        'user_id'
+        'user_id',
+        'username'
       ])
 }
 
