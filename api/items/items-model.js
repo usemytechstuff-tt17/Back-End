@@ -42,7 +42,8 @@ function add(id, obj) {
         'item_name',
         'item_available',
         'item_price',
-        'item_description'
+        'item_description',
+        'user_id'
       ])
 }
 
@@ -56,7 +57,8 @@ function update(id, changes) {
         'item_name',
         'item_available',
         'item_price',
-        'item_description'
+        'item_description',
+        'user_id'
       ])
 }
 
