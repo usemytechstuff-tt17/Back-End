@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
             .catch(next)
 })
 
-router.get('/:item_id', restricted, (req, res, next) => {
+router.get('/:id', restricted, (req, res, next) => {
   const [id] = req.params.id
 
   ItemsModel.getById(id)
@@ -32,18 +32,19 @@ router.post('/', restricted, (req, res, next) => {
             .catch(next)
 })
 
-router.put('/:item_id', restricted, (req, res, next) => {
+router.put('/:id', restricted, (req, res, next) => {
   const { id } = req.params
-  const { body } = req
+  const { item_name, item_available, item_price, item_description } = req.body
+  const cleanBody = {item_name, item_available, item_price, item_description}
 
-  ItemsModel.update(id, body)
-            .then(([item]) => {
+  ItemsModel.update(id, cleanBody)
+            .then((item) => {
               res.status(201).json(item)
             })
             .catch(next)
 })
 
-router.delete('/:item_id', (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
   ItemsModel.del(req.params.id)
             .then(item => {
               res.status(200).json(item)
