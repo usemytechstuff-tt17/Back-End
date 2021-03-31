@@ -50,7 +50,7 @@ Body:                                     |           Response:
                                           |           }
 
 ```
-#### User's items:
+#### Connected user's items:
 [GET] `/api/users/items`
 ```javascript
 Body:                                     |           Response:
