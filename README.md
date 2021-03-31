@@ -51,7 +51,7 @@ Body:                                     |           Response:
 
 ```
 #### User's items:
-[GET] `/api/users/:id/items`
+[GET] `/api/users/items`
 ```javascript
 Body:                                     |           Response:
                                           |           [
