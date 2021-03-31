@@ -11,8 +11,9 @@ router.get('/', (req, res, next) => {
   res.status(200).json('getAll Users')
 })
 
-router.get('/:id/items', restricted, (req, res, next) => {
-  UsersModel.findUserItems(req.params.id)
+router.get('/items', restricted, (req, res, next) => {
+  console.log("TOKEN STUFF: ", req.decodedJwt)
+  UsersModel.findUserItems(req.decodedJwt.user_id)
             .then(user_items => {
               res.status(200).json(user_items)
             })

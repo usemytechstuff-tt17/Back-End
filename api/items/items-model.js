@@ -8,7 +8,8 @@ function getAll() {
       'item_available',
       'item_price',
       'item_description',
-      'username as item_owner'
+      'username as item_owner',
+      'items.user_id'
       )
     .from('items')
     .join('users', 'users.user_id', 'items.user_id')
@@ -29,6 +30,8 @@ function getById(id) {
     .where('item_id', id)
     .first()
 }
+
+
 
 module.exports = {
   getAll,
