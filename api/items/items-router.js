@@ -33,7 +33,15 @@ router.post('/:id', (req, res, next) => {
 })
 
 router.put('/:id', (req, res, next) => {
-  res.status(200).json('item changed')
+  const { id } = req.params
+  const { body } = req
+  console.log('BODY: ', body)
+
+  ItemsModel.update(id, body)
+            .then(([item]) => {
+              res.status(201).json(item)
+            })
+            .catch(next)
 })
 
 router.delete('/:id', (req, res, next) => {

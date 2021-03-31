@@ -31,9 +31,22 @@ function getById(id) {
     .first()
 }
 
-
+function update(id, changes) {
+  return db('items')
+    .where('item_id', id)
+    .update(
+      changes,
+      [
+        'item_id',
+        'item_name',
+        'item_available',
+        'item_price',
+        'item_description'
+      ])
+}
 
 module.exports = {
   getAll,
   getById,
+  update,
 }
