@@ -23,7 +23,8 @@ function getById(id) {
       'item_available',
       'item_price',
       'item_description',
-      'username as item_owner'
+      'username as item_owner',
+      'email as owner_email'
       )
     .from('items')
     .join('users', 'users.user_id', 'items.user_id')

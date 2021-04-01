@@ -5,7 +5,7 @@ const router = require('express').Router()
 const { jwtSecret } = require('../config/secrets')
 const UsersModel = require('./users-model')
 
-const { restricted } = require('./users-middleware')
+const { restricted, checkUser, trimAll } = require('./users-middleware')
 
 router.get('/', (req, res, next) => {
   res.status(200).json('getAll Users')
@@ -20,7 +20,7 @@ router.get('/items', restricted, (req, res, next) => {
             .catch(next)
 })
 
-router.post('/register', (req, res, next) => {
+router.post('/register', trimAll, checkUser, (req, res, next) => {
   const credentials = req.body
 
   const rounds = process.env.BCRYPT_ROUNDS || 8
@@ -35,7 +35,7 @@ router.post('/register', (req, res, next) => {
             .catch(next)
 })
 
-router.post('/login', (req, res, next) => {
+router.post('/login', trimAll, (req, res, next) => {
   const { username, password } = req.body
 
   UsersModel.findBy({ username: username })
