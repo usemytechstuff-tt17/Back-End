@@ -9,7 +9,8 @@ function getAll() {
       'item_price',
       'item_description',
       'username as item_owner',
-      'items.user_id'
+      'items.user_id',
+      'email as owner_email'
       )
     .from('items')
     .join('users', 'users.user_id', 'items.user_id')

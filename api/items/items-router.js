@@ -4,8 +4,6 @@ const ItemsModel = require('./items-model')
 
 const { restricted } = require('../users/users-middleware')
 
-//middleware
-
 router.get('/', (req, res, next) => {
   ItemsModel.getAll()
             .then(all => {
