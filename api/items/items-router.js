@@ -50,7 +50,7 @@ router.delete('/:id', (req, res, next) => {
             .catch(next)
 })
 
-router.use((err, req, res, next) => {
+router.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(500).json({
     message: err.message,
     stack: err.stack,

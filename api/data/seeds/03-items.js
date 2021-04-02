@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function(knex, Promise) { // eslint-disable-line no-unused-vars
   return knex('items').insert([
     { item_name: 'dog', item_available: 'true', user_id: 1, item_price: 10, item_description: 'a stupid dog' },
     { item_name: 'cat', item_available: 'true', user_id: 1, item_price: 1, item_description: 'an ugly cat' },
@@ -8,5 +8,5 @@ exports.seed = function(knex, Promise) {
     { item_name: 'hat', item_available: 'true', user_id: 4, item_price: 654, item_description: 'a stupid hat' },
     { item_name: 'shoes', item_available: 'true', user_id: 4, item_price: 68, item_description: 'a stupid shoe' },
     { item_name: 'socks', item_available: 'true', user_id: 4, item_price: 98, item_description: 'a stupid socks' },
-  ]);
-};
+  ])
+}

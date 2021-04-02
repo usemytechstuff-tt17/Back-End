@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function(knex, Promise) { // eslint-disable-line no-unused-vars
   return knex('users').insert([
     { username: 'mickey', password: 'mickey', email: 'mickey@oneil.com' },
     { username: 'rick', password: '1234', email: 'rick@deckard.com' }, 
@@ -8,5 +8,5 @@ exports.seed = function(knex, Promise) {
       password: '$2a$08$fzNA9hWHl3OXC.hXUHpzuuHNv/ChOA1rprwYR/B0/xxDAOV9R9ube',
       email: 'user@user.com'
     }, 
-  ]);
-};
+  ])
+}

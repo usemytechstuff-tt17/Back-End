@@ -64,10 +64,48 @@ Body:                                     |           Response:
                                           |               "item_price": "1.00",
                                           |               "item_owner": 'user name',
                                           |               "item_description": 'someDescription,
-                                          |             }
+                                          |             }, ...
                                           |           ]
 
 ```
-[PUT] `/api/items/:item_id`
+#### Add item to database:
 [POST] `/api/items`
+```javascript
+Body:                                     |           Response:
+{                                         |           {
+  "item_name": string                     |             "user_id": 1,
+  "item_available": boolean               |             "item_id": 1,
+  "item_price": decimal                   |             "item_name": "item",
+  "item_description": string              |             "item_available": true,
+}                                         |             "item_price": "1.00",
+                                          |             "item_description": 'someDescription,
+                                          |           }
+```
+#### Edit item:
+[PUT] `/api/items/:item_id`
+```javascript
+Body:                                     |           Response:
+{                                         |           {
+  "item_name": string                     |             "user_id": 1,
+  "item_available": boolean               |             "item_owner": 'username',
+  "item_price": decimal                   |             "item_id": 1,
+  "item_description": string              |             "item_name": "item",
+}                                         |             "item_available": true,
+                                          |             "item_price": "1.00",
+                                          |             "item_description": 'someDescription,
+                                          |           }
+```
+### Delete item:
 [DELETE] `/api/items/:item_id`
+```javascript
+Body:                                     |           Response:
+                                          |           {
+                                          |             "user_id": 1,
+                                          |             "item_owner": 'username',
+                                          |             "item_id": 1,
+                                          |             "item_name": "item",
+                                          |             "item_available": true,
+                                          |             "item_price": "1.00",
+                                          |             "item_description": 'someDescription,
+                                          |           }
+```

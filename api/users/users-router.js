@@ -7,7 +7,7 @@ const UsersModel = require('./users-model')
 
 const { restricted, checkUser, trimAll } = require('./users-middleware')
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(200).json('getAll Users')
 })
 
@@ -66,7 +66,7 @@ const buildToken = user => {
   return jwt.sign(payload, jwtSecret, config)
 }
 
-router.use((err, req, res, next) => {
+router.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(500).json({
     message: err.message,
     stack: err.stack,
