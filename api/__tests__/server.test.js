@@ -89,8 +89,8 @@ describe('items-router.js', () => {
   test('[GET] /api/items returns all items', async () => {
     const items = await request(server)
       .get('/api/items')
-    expect(items.body).toHaveLength(8)
-    expect(items.body[0].item_name).toBe('dog')
+    expect(items.body).toHaveLength(7)
+    expect(items.body[0].item_name).toBe('DJ Set')
   })
   test('[GET] /api/items/:id returns an object', async () => {
     const item = await request(server)
