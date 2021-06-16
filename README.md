@@ -1,3 +1,8 @@
+Back-End for https://use-my-tech-stuff-now.vercel.app/.
+Handling private routes, login/register process.
+CRUD operations to manage users and items.
+Stores items and users in PostgreSQL database.
+
 # API DOCS / https://usemytechstuff.herokuapp.com
 
 #### User register:
